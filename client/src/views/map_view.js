@@ -6,6 +6,7 @@ const MapView = function (mapDiv, coords, zoomLevel) {
   this.coords = coords;
   this.zoomLevel = zoomLevel;
   this.leafletMap = null;
+  this.markers = []
 }
 
 MapView.prototype.init = function () {
@@ -18,7 +19,12 @@ MapView.prototype.init = function () {
 }
 
 MapView.prototype.setMarker = function(coords) {
-  leaflet.marker(coords).addTo(this.leafletMap);
+  const newMarker = leaflet.marker(coords).addTo(this.leafletMap);
+  this.markers.push(newMarker);
+}
+
+MapView.prototype.removeLastMarker = function() {
+this.leafletMap.removeLayer(this.markers.pop());
 }
 
 module.exports = MapView;
