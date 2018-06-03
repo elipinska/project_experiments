@@ -32,28 +32,28 @@ CitiesInputView.prototype.renderCitiesList = function (evt) {
   ul = evt.target.nextElementSibling;
 
   ul.innerHTML = "";
-  if (filter.length > 2) {
+  if (filter.length > 1 || (this.countryFilter !== 'All' && filter.length > 0)) {
     this.citiesData.forEach((city) => {
       if (this.countryFilter === "All") {
         if (city.name.toUpperCase().indexOf(filter) === 0) {
           const newLi = document.createElement('li');
-          const newA = document.createElement('a');
+          // const newA = document.createElement('a');
           this.addMapMarkerListenerToListItem(city, newLi);
           this.removeMapMarkerListenerToListItem(city, newLi);
           this.addOnClickListenerToListItem(city, newLi);
-          newA.textContent = `${city.name} (${this.countriesData[city.country].name}), longitude: ${city.lng}, latitude: ${city.lat}`;
-          newLi.appendChild(newA);
+          newLi.textContent = `${city.name} (${this.countriesData[city.country].name}), longitude: ${city.lng}, latitude: ${city.lat}`;
+          // newLi.appendChild(newA);
           ul.appendChild(newLi);
         };
       } else {
         if (this.countryFilter === city.country && city.name.toUpperCase().indexOf(filter) === 0) {
           const newLi = document.createElement('li');
-          const newA = document.createElement('a');
+          // const newA = document.createElement('a');
           this.addMapMarkerListenerToListItem(city, newLi);
           this.removeMapMarkerListenerToListItem(city, newLi);
           this.addOnClickListenerToListItem(city, newLi);
-          newA.textContent = `${city.name} (${this.countriesData[city.country].name}), longitude: ${city.lng}, latitude: ${city.lat}`;
-          newLi.appendChild(newA);
+          newLi.textContent = `${city.name} (${this.countriesData[city.country].name}), longitude: ${city.lng}, latitude: ${city.lat}`;
+          // newLi.appendChild(newA);
           ul.appendChild(newLi);
         };
       };

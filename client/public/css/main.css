@@ -1,6 +1,6 @@
 #mapid {
   width: 37vw;
-  height: 300px;
+  height: 480px;
   margin: auto;
  }
 
@@ -21,7 +21,7 @@
     margin: 0;
 }
 
-#cities-list li a, #countries-list li a {
+#cities-list li, #countries-list li {
     border: 1px solid #ddd; /* Add a border to all links */
     margin-top: -1px; /* Prevent double borders */
     background-color: #f6f6f6; /* Grey background color */
@@ -32,14 +32,16 @@
     display: block; /* Make it into a block element to fill the whole list */
 }
 
-#cities-list li a:hover:not(.header), #countries-list li a:hover:not(.header){
+#cities-list li:hover, #countries-list li:hover{
     background-color: #eee; /* Add a hover effect to all links, except for headers */
+    cursor: pointer;
 }
 
 #country-dropdown {
   font-size: 16px;
+  height: 30px;
 }
-/*
-#cities-input {
+
+#countries-input {
   display:none;
-} */
+}

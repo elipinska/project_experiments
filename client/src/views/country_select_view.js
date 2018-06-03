@@ -17,11 +17,11 @@ CountrySelectView.prototype.bindEvents = function () {
 
     if (evt.target.value !== 'All') {
       function getKeyByValue(object, value) {
-        return Object.keys(object).find(key => object[key].name === value);
-      }
+        return Object.keys(object).find(key => value.indexOf(object[key].name) > -1);
+      };
 
       countryCode = getKeyByValue(this.countryData, evt.target.value);
-    }
+    };
 
     PubSub.publish('CountrySelectView:filter-country-selected', countryCode);
   });
@@ -30,12 +30,12 @@ CountrySelectView.prototype.bindEvents = function () {
 CountrySelectView.prototype.populateDropdown = function (citiesData) {
   const allCountries = []
   for (var key in citiesData) {
-    allCountries.push(citiesData[key].name);
+    allCountries.push({name: citiesData[key].name, emoji: citiesData[key].emoji});
   };
 
   allCountries.sort(function(countryA, countryB) {
-    var nameA = countryA.toUpperCase();
-    var nameB = countryB.toUpperCase();
+    var nameA = countryA.name.toUpperCase();
+    var nameB = countryB.name.toUpperCase();
     if (nameA < nameB) {
       return -1;
     }
@@ -45,9 +45,9 @@ CountrySelectView.prototype.populateDropdown = function (citiesData) {
     return 0;
   });
 
-  allCountries.forEach((countryName) => {
+  allCountries.forEach((country) => {
     const newOption = document.createElement('option');
-    newOption.textContent = countryName;
+    newOption.textContent = `${country.emoji} ${country.name}`;
     this.container.appendChild(newOption);
   });
 };

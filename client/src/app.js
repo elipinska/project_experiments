@@ -9,11 +9,10 @@ const CitySelectionFormView = require('./views/city_selection_form_view.js');
 document.addEventListener('DOMContentLoaded', () => {
 
   const mapDiv = document.getElementById('mapid');
-    const glasgowCoords = [33.86, 33.25];
+    const coords = [0, 0];
     const zoomLevel = 1;
-    const mapView = new MapView(mapDiv, glasgowCoords, zoomLevel);
+    const mapView = new MapView(mapDiv, coords, zoomLevel);
     mapView.init();
-    mapView.setMarker(glasgowCoords);
 
     const countryDropdown = document.getElementById('country-dropdown');
     const countrySelectView = new CountrySelectView(countryDropdown);
