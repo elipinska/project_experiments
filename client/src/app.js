@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const citySelectionForm = document.querySelector('#city-selection-form')
     const citySelectionFormView = new CitySelectionFormView(citySelectionForm);
+    citySelectionFormView.bindEvents();
 
 
     const countriesData = new CountriesData();

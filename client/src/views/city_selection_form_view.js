@@ -4,6 +4,12 @@ const CitySelectionFormView = function(container) {
   // this.addOnBlurEvenentListenerToInputElement();
 }
 
+CitySelectionFormView.prototype.bindEvents = function () {
+  this.container.addEventListener('submit', (evt) => {
+    console.log(evt.target[2].value);
+    evt.preventDefault();
+  });
+};
 
 // CitySelectionFormView.prototype.addOnBlurEvenentListenerToInputElement = function () {
 //   this.container.addEventListener('focusout', (evt) => {
