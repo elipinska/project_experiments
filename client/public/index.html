@@ -7,23 +7,23 @@
   <meta charset="utf-8">
   <title>Our experimental playground</title>
   <script type="text/javascript" src="js/bundle.js"></script>
-<link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-  <form class="cities" action="index.html" method="post">
-    <select id="cities-dropdown" name="cities-dropdown">
-      <option selected disabled></option>
-    </select>
-  </form>
   <div id="mapid"></div>
 
-  <input type="text" id="countries-input" placeholder="Search for country...">
-  <ul id="countries-list">
-  </ul>
+  <form id="city-selection-form" action="index.html" method="post">
+    <select id="country-dropdown" name="cities-dropdown">
+      <option selected>All</option>
+    </select>
+    <input type="text" id="countries-input" placeholder="Search for country...">
+    <ul id="countries-list">
+    </ul>
 
-  <input type="text" id="cities-input" placeholder="Search for city...">
-  <ul id="cities-list">
-  </ul>
+    <input type="text" id="cities-input" placeholder="Search for city...">
+    <ul id="cities-list">
+    </ul>
+  </form>
 
 </body>
 </html>

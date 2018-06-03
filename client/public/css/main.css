@@ -1,4 +1,8 @@
-#mapid { height: 180px }
+#mapid {
+  width: 37vw;
+  height: 300px;
+  margin: auto;
+ }
 
 #cities-input, #countries-input {
     background-position: 10px 12px; /* Position the search icon */
@@ -31,7 +35,11 @@
 #cities-list li a:hover:not(.header), #countries-list li a:hover:not(.header){
     background-color: #eee; /* Add a hover effect to all links, except for headers */
 }
-/* 
+
+#country-dropdown {
+  font-size: 16px;
+}
+/*
 #cities-input {
   display:none;
 } */

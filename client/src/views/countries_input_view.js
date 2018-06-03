@@ -30,15 +30,23 @@ CountriesInputView.prototype.renderCountriesList = function (evt) {
   if (filter.length > 2) {
 
     for (var key in this.countriesData) {
-      if (this.countriesData[key].name.toUpperCase().indexOf(filter) === 0) {
+      const country = this.countriesData[key];
+      if (country.name.toUpperCase().indexOf(filter) === 0) {
         const newLi = document.createElement('li');
         const newA = document.createElement('a');
+        this.addOnClickListenerToListItem(country, newLi);
         newA.textContent = this.countriesData[key].name;
         newLi.appendChild(newA);
         ul.appendChild(newLi);
       };
     };
   };
+};
+
+CountriesInputView.prototype.addOnClickListenerToListItem = function(country, listElement) {
+  listElement.addEventListener('click', (evt) => {
+    this.container.value = country.name;
+  });
 };
 
 module.exports = CountriesInputView;

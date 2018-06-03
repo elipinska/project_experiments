@@ -1,9 +1,10 @@
 const CitiesData = require('./models/cities_data.js');
 const CountriesData = require('./models/countries_data.js');
 const MapView = require('./views/map_view.js');
-const CitiesSelectView = require('./views/cities_select_view.js');
+const CountrySelectView = require('./views/country_select_view.js');
 const CitiesInputView = require('./views/cities_input_view.js');
 const CountriesInputView = require('./views/countries_input_view.js');
+const CitySelectionFormView = require('./views/city_selection_form_view.js');
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -14,9 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
     mapView.init();
     mapView.setMarker(glasgowCoords);
 
-    const citiesDropdown = document.getElementById('cities-dropdown');
-    const citiesSelectView = new CitiesSelectView(citiesDropdown);
-    citiesSelectView.bindEvents();
+    const countryDropdown = document.getElementById('country-dropdown');
+    const countrySelectView = new CountrySelectView(countryDropdown);
+    countrySelectView.bindEvents();
 
 
     const countriesInputElement = document.querySelector('#countries-input');
@@ -28,6 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const citiesInputView = new CitiesInputView(citiesInputElement, mapView);
     citiesInputView.addOnKeyUpToCitiesInput();
     citiesInputView.bindEvents();
+
+    const citySelectionForm = document.querySelector('#city-selection-form')
+    const citySelectionFormView = new CitySelectionFormView(citySelectionForm);
 
 
     const countriesData = new CountriesData();
